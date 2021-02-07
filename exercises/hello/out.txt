@@ -1,1 +1,1 @@
-hello, sqrt(2)=1.41421
+hello, world. Did you know that sqrt(2)=1.41421?
