@@ -1,0 +1,8 @@
+Γ=24
+J_1(0.5)=0.242268
+sqrt(-2)=0 + 1.41421I
+exp(iπ)=-1.000000 +0.000000I
+i^e = -0.428220 + -0.903675I
+e^i = 0.540302 + 0.841471I
+i^i = 0.207880 + 0.000000I
+The output of printing 1/9 depends on the type. A float gives 0.1111111119389533996582031, a double will give 0.1111111111111111049432054 and a long double will give 0.1111111111111111111096053
