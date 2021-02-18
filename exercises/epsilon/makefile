@@ -16,4 +16,4 @@ function.o: function.c
 	$(CC) $(CFLAGS) -c $< -o $@
 .PHONEY: clean
 clean: 
-	$(RM) main out.txt
+	$(RM) main.o function.o main out.txt
