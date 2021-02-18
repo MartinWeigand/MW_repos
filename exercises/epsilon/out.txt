@@ -1,0 +1,35 @@
+Exercise 1.i:
+While: My max int = 2147483647
+For: My max int = 2147483647
+Do-while: My max int = 2147483647
+INT_MAX = 2147483647
+
+Exercise 1.ii:
+While: My min int = -2147483648
+For: My min int = -2147483648
+Do-while: My min int = -2147483648
+INT_MIN = -2147483648
+
+Exercise 1.iii:
+Float, while: Epsilon = 1.19209e-07
+Double, while: Epsilon = 2.22045e-16
+Long double, while: Epsilon = 1.0842e-19
+Float, for: Epsilon = 1.19209e-07
+Double, for: Epsilon = 2.22045e-16
+Long double, for: Epsilon = 1.0842e-19
+Float, do-while: Epsilon = 5.96046e-08
+Double, do-while: Epsilon = 1.11022e-16
+Long double, do-while: Epsilon = 5.42101e-20
+FLT_EPSILON = 1.19209e-07
+DBL_EPSLION = 2.22045e-16
+LDBL_EPSILON = 1.0842e-19
+
+Exercise 2.i:
+Sum_up_float=15.4037
+Sum_down_float=18.8079
+Sum_up_double=21.3716
+Sum_down_double=21.3716
+
+Exercise 3:
+For a=2, b=1, tau=0.1 and epsilon=0.0001, one get 0
+For a=1, b=1, tau=0.1 and epsilon=0.0001, one get 1
