@@ -1,0 +1,1 @@
+Estimate of pi with 3e8 iterations is 3.14154

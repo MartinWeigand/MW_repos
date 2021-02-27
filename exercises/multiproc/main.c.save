@@ -1,0 +1,33 @@
+#include <stdio.h>
+#include <math.h>
+#include <pthread.h>
+#include <stdlib.h>
+
+void* pi_MC(void* arg){
+	double* c = (double*) arg;
+	double x=0; double y=0;
+	unsigned int seedx=1; unsigned int seedy=2;
+	for(int i=0;i<1e6;i++){
+		x =rand_r(&seedx);
+		y =rand_r(&seedy);
+		x/=RAND_MAX;
+		y/=RAND_MAX;
+		if((pow(x,2)+pow(y,2))<=1){ c++;}
+	}
+	return NULL;
+}
+
+int main(){
+int count1=0; int count2=0; int count3=0;
+
+pthread_t t1,t2;
+pthread_attr_t* attributes = NULL;
+
+pthread_create(&t1,attributes,pi_MC, (void*)&count1);
+pthread_create(&t2,attributes,pi_MC, (void*)&count2);
+pi_MC((void*)&count3);
+
+double pi = 4 * (count1+count2+count3)/(3e6);
+printf("Estimate of pi with 3e6 iterations is %g\n",pi);
+return 0;
+}
