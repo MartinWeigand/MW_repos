@@ -1,0 +1,1 @@
+The integral of ln(x)/sqrt(x) from 0 to 1 is -4
