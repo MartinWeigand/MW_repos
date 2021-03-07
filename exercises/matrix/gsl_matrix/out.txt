@@ -1,0 +1,7 @@
+b=
+      6.23       5.37       2.29 
+If GSL's householder solver for linear systems works then A*x=b and A*x=
+      6.23       5.37       2.29 
+Since they are equal, it seems to work.
+ The result of the calculation is x=
+   -1.1379   -2.83303   0.851459 
