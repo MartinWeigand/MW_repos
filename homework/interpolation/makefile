@@ -49,7 +49,7 @@ lin_int.plot.png: out.linear.intdata.txt out.linear.data.txt makefile
 	set ylabel "y" ;\
 	set out "$@" ;\
 	plot \
-	"out.linear.data" with points pointtype 4 linecolor rgb "black" title "Data" \
+	"out.linear.data.txt" with points pointtype 4 linecolor rgb "black" title "Data" \
 	,"$<" using 1:2 with lines linecolor rgb "red" title "Linear-spline" \
 	,"$<" using 1:3 with lines linecolor rgb "blue" title "Integral(Linear-spline)" \
 	,"$<" using 1:4 with lines linecolor rgb "red" title "GSL: Linear spline" \
