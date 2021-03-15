@@ -2,6 +2,18 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<assert.h>
+#include<gsl/gsl_sf_erf.h>
+
+int binary_search(int n, double* x, double z){
+	assert(z>=x[0] && z<=x[n-1]);
+	int i=0, j=n-1;
+	while(j-i>1){
+		int m=(i+j)/2;
+		if(z>x[m]) i=m;
+		else j=m;
+	}
+	return i;
+}
 
 typedef struct {int n; double* x, *y, *b, *c;} qspline;
 
@@ -37,13 +49,7 @@ qspline* qspline_alloc(int n, double* x, double* y){
 }
 
 double qspline_eval(qspline *s, double z){
-	assert(z>=s->x[0] && z<=s->x[s->n-1]);
-	int i=0, j=s->n-1;
-	while(j-i>1){
-		int m=(i+j)/2;
-		if(z>s->x[m]) i=m;
-		else j=m;
-	}
+	int i = binary_search(s->n,s->x,z);
 	double h=z-s->x[i];
 	return s->y[i]+h*(s->b[i]+h*s->c[i]);
 }
@@ -56,31 +62,20 @@ void qspline_free(qspline *s){
 	free(s);
 }
 
-double qinterp_integ(qspline *s, double z){
-int i=0, j=s->n-1;
-while(j-i>1){
-	int mid=(i+j)/2;
-	if(z>s->x[mid]) i=mid;
-		else j=mid;
-}
-double integral=0;
-for(int k=1;k<=i;k++){ //takes care of the integral from 0 and up to the datapoint just before z
-	integral+=(s->x[k]-s->x[k-1])*(s->y[k-1]+(s->x[k]-s->x[k-1])*(0.5*s->b[k-1]+s->c[k-1]*(s->x[k]-s->x[k-1])/3));
+double qinterp_integ(qspline *s, double z){ //Integral of quadratic spline
+	int i = binary_search(s->n,s->x,z);
+	double integral=0;
+	for(int k=1;k<=i;k++){
+		integral+=(s->x[k]-s->x[k-1])*(s->y[k-1]+(s->x[k]-s->x[k-1])*(0.5*s->b[k-1]+s->c[k-1]*(s->x[k]-s->x[k-1])/3));
 	}
-
-integral+=(z-s->x[i])*(s->y[i]+(z-s->x[i])*(0.5*s->b[i]+s->c[i]*(z-s->x[i])/3));
-return integral;
+	integral+=(z-s->x[i])*(s->y[i]+(z-s->x[i])*(0.5*s->b[i]+s->c[i]*(z-s->x[i])/3));
+	return integral;
 }
 
-double qspline_der(qspline *s, double z){
-int i=0, j=s->n-1;
-while(j-i>1){
-	int mid=(i+j)/2;
-	if(z>s->x[mid]) i=mid;
-		else j=mid;
-}
-double derivative = s->b[i]+2*s->c[i]*(z-s->x[i]);
-return derivative;
+double qspline_der(qspline *s, double z){ //Derivative of quadratic spline
+	int i = binary_search(s->n,s->x,z);
+	double derivative = s->b[i]+2*s->c[i]*(z-s->x[i]);
+	return derivative;
 }
 
 int main(){
@@ -90,20 +85,21 @@ int num_data = 6;
 double x[num_data], y[num_data];
 
 for(int i=0;i<num_data;i++){
-//y[i]=10.0*rand()/RAND_MAX;
-y[i]=cos(i);
-x[i]=i;
-fprintf(my_os,"%10g %10g \n",x[i],y[i]);
+	//y[i]=10.0*rand()/RAND_MAX;
+	//y[i]=cos(i);
+	y[i]=gsl_sf_erf(i);
+	x[i]=i;
+	fprintf(my_os,"%10g %10g \n",x[i],y[i]);
 }
 
 int z=0;
-double ex_points = 30; //numbers of interpolated data points between two tabulated data points
+double ex_points = 10; //numbers of interpolated data points between two tabulated data points
 FILE* my_osn=fopen("out.quad.intdata.txt","w");
 
 qspline* q=qspline_alloc(num_data,x,y);
 
 for(z=0;z<=ex_points*(num_data-1);z++){
-fprintf(my_osn,"%10g %10g %10g %10g \n",z/ex_points,qspline_eval(q,z/ex_points),qinterp_integ(q,z/ex_points),qspline_der(q,z/ex_points));
+	fprintf(my_osn,"%10g %10g %10g %10g \n",z/ex_points,qspline_eval(q,z/ex_points),qinterp_integ(q,z/ex_points),qspline_der(q,z/ex_points));
 	}
 qspline_free(q);
 
