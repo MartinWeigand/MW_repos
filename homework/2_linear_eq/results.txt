@@ -1,0 +1,76 @@
+Task A.1:
+Our random-generated matrix, A, is:
+  0.840  0.394  0.783  0.798
+  0.912  0.198  0.335  0.768
+  0.278  0.554  0.477  0.629
+  0.365  0.513  0.952  0.916
+  0.636  0.717  0.142  0.607
+The orthogonal matrix from the QR decomposition, Q, is:
+  0.573 -0.168  0.329 -0.715
+  0.622 -0.513 -0.122  0.575
+  0.189  0.554  0.055  0.215
+  0.249  0.419  0.660  0.300
+  0.433  0.475 -0.662 -0.146
+The upper triangular matrix from the QR decomposition, R, is:
+  1.467  0.892  1.046  1.545
+  0.000  0.695  0.427  0.493
+  0.000  0.000  0.778  0.406
+  0.000  0.000  0.000  0.192
+So R is upper triangular.
+Q^T*Q, which should be the identity matrix, is:
+  1.000  0.000  0.000  0.000
+  0.000  1.000 -0.000 -0.000
+  0.000 -0.000  1.000  0.000
+  0.000 -0.000  0.000  1.000
+Which exactly is the identity matrix.
+Q*R, which should be equal to A, is:
+  0.840  0.394  0.783  0.798
+  0.912  0.198  0.335  0.768
+  0.278  0.554  0.477  0.629
+  0.365  0.513  0.952  0.916
+  0.636  0.717  0.142  0.607
+This equals A.
+
+Task A.2:
+Our random-generated matrix, A, is:
+  0.016  0.243  0.137  0.804
+  0.157  0.401  0.130  0.109
+  0.999  0.218  0.513  0.839
+  0.613  0.296  0.638  0.524
+Our random-generated vector, b, is:
+  0.494
+  0.973
+  0.293
+  0.771
+We now wanna solve Ax=b for x.
+Using our implementation we get x to be:
+ -0.373
+  2.431
+  0.619
+ -0.218
+Using GSL's implementation we get that Ax is equal to:
+  0.494
+  0.973
+  0.293
+  0.771
+which equals b, so our implementation works.
+
+Task B:
+We reuse the matrix and decomposition from task A.2
+Using our implementation, we get that the inverse of A, i.e. B, is:
+ -1.029  0.640  1.701 -1.277
+  0.089  2.879 -0.162 -0.475
+ -0.082 -1.427 -1.828  3.347
+  1.252 -0.639  0.326 -0.402
+Using GSL's implementations we get that AB is:
+  1.000  0.000  0.000 -0.000
+ -0.000  1.000 -0.000  0.000
+  0.000  0.000  1.000  0.000
+  0.000 -0.000 -0.000  1.000
+which is the identity matrix as expected.
+Calculating BA gives:
+  1.000  0.000  0.000  0.000
+  0.000  1.000  0.000  0.000
+ -0.000 -0.000  1.000 -0.000
+  0.000  0.000  0.000  1.000
+which also is the identity matrix. So it seems like our inverse-function works.
