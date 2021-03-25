@@ -80,7 +80,7 @@ printm(R_new);
 printf("which also is the identity matrix. So it seems like our inverse-function works.\n");
 printf("\n");
 printf("Task C:\n");
-printf("In the out.times.png the processing time to QR-factorize a NxN matrix is plotted as a function of N. This is done for both my own implementation and GSLs implementation. We would expect my own implementation to go like O(N^3), since in my QR_decom function is calculates a dot product and a linear combination of two columns. Each of these operations contributes with O(n). So I have fitted a y=a*x^3 curve to the data of my own implementation and it looks like it actually evolves like N^3, expect for some weird 'bumps' at specfic N-values.");
+printf("In the out.times.png the processing time to QR-factorize a NxN matrix is plotted as a function of N. This is done for both my own implementation and GSLs implementation. We would expect my own implementation to go like O(N^3), since in my QR_decom function is calculates a dot product and a linear combination of two columns. Each of these operations contributes with O(n). So I have fitted a y=a*x^3 curve to the data of my own implementation and it looks like it actually evolves like N^3, expect for some weird 'bumps' at specfic N-values, which might is because of my own computer acting a bit strange when it comes to CPU in my virtualbox. We also see in the plot that GSLs implementation is overall faster than mine.");
 gsl_matrix_free(A);
 gsl_matrix_free(Q_trans_Q);
 gsl_matrix_free(R);
