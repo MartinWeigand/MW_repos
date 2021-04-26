@@ -62,5 +62,5 @@ timecalculations: timecalculations.o functions.o jacobi_optimized.o
 
 .PHONEY: clean
 clean:
-	$(RM) *.o *.txt
+	$(RM) *.o *.txt *.log *.png
 
