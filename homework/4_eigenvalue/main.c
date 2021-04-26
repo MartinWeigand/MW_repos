@@ -86,13 +86,19 @@ for(int k=0; k<N/3; k++){
 	printf("%i %g %g\n",k,calculated_e,real_e);
 }
 printf("The energies seems correct\n");
+printf("In eigenfunctions.png the first three eigenfunctions are plotted together with the analytical results\n");
 
 FILE* my_os=fopen("states.data.txt","w");
-fprintf(my_os,"0 0 0 0 0 0\n");
+fprintf(my_os,"0 0 0 0\n");
 for(int i=0; i<N; i++){
 	fprintf(my_os,"%g %g %g %g\n",(i+1.0)/(N+1),gsl_matrix_get(VV,i,0),gsl_matrix_get(VV,i,1),gsl_matrix_get(VV,i,2));
 }
-fprintf(my_os,"1 0 1 0 1 0\n");
+fprintf(my_os,"1 0 0 0\n");
+
+printf("\n");
+
+printf("Task C:\n");
+printf("In timeplot.png the time it take to diagonalize a random matrix of size N is plotted against the matrix size N, using my implemention, GSLs implementation and my optimized implementation. It is seen that both my implementations scales as O(N³)\n");
 
 gsl_matrix_free(A);
 gsl_matrix_free(V);

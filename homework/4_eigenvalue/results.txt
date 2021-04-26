@@ -39,3 +39,7 @@ Numerical  Exact
 4 235.448 246.74
 5 332.082 355.306
 The energies seems correct
+In eigenfunctions.png the first three eigenfunctions are plotted together with the analytical results
+
+Task C:
+In timeplot.png the time it take to diagonalize a random matrix of size N is plotted against the matrix size N, using my implemention, GSLs implementation and my optimized implementation. It is seen that both my implementations scales as O(N³)
