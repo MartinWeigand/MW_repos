@@ -1,0 +1,41 @@
+Task A:
+The randomly generated symmetric matrix A is:
+  0.680 -0.211  0.566  0.597
+ -0.211  0.823 -0.605 -0.330
+  0.566 -0.605  0.536 -0.444
+  0.597 -0.330 -0.444  0.108
+After matrix diagonalization with the Jacobi algorithm, the matrix A is:
+ -0.786 -0.000  0.000 -0.000
+ -0.000  0.479  0.000  0.000
+  0.000  0.000  0.800 -0.000
+ -0.000  0.000 -0.000  1.655
+It is diagonal as expected
+To prove that our implementation works we check if V^T*A*V=D, V*D*V^T=A and V^T*V=1, where V is the orthogonal matrix of eigenvectors and D is the diagonal matrix with the eigenvalues. First, calculating V^T*A*V gives:
+ -0.786 -0.000  0.000  0.000
+ -0.000  0.479 -0.000  0.000
+  0.000  0.000  0.800 -0.000
+  0.000  0.000 -0.000  1.655
+Which equals the matrix A after matrix diagonalization as expected
+Second, calculating V*D*V^T gives:
+  0.680 -0.211  0.566  0.597
+ -0.211  0.823 -0.605 -0.330
+  0.566 -0.605  0.536 -0.444
+  0.597 -0.330 -0.444  0.108
+Which equals the matrix A as expected
+Third, calculating V^T*V gives:
+  1.000 -0.000 -0.000  0.000
+ -0.000  1.000 -0.000 -0.000
+ -0.000 -0.000  1.000  0.000
+  0.000 -0.000  0.000  1.000
+Which equals the identity matrix as expected
+
+Task B:
+Energy values in units of hbar²/2mL²:
+Numerical  Exact
+0 9.85121 9.8696
+1 39.1848 39.4784
+2 87.3455 88.8264
+3 153.257 157.914
+4 235.448 246.74
+5 332.082 355.306
+The energies seems correct
