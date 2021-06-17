@@ -1,0 +1,94 @@
+The following integrations is performed with absolute and relative accuracy goal on 0.001.
+
+--------------------------------------------------
+Task A:
+
+Integration from 0->1 of sqrt(x) gives:
+Calculated: Q = 0.666954
+Exact: Q = 0.666667
+Number of calls: 16
+Estimated error = 0.00166695
+Actual error = 0.000287242
+
+Integration from 0->1 of 4*sqrt(1-x*x) gives:
+Calculated: Q = 3.14183
+Exact: Q = 3.14159
+Number of calls: 28
+Estimated error = 0.00414183
+Actual error = 0.000241924
+
+Integration from 0->1 of exp(sqrt(x)) gives:
+Calculated: Q = 2.00077
+Exact: Q = 2
+Number of calls: 12
+Estimated error = 0.00300077
+Actual error = 0.000765335
+
+--------------------------------------------------
+Task B:
+
+Integration from 0->1 of 1/sqrt(x) WITHOUT CC variable transformation gives:
+Calculated: Q = 1.99996
+Exact: Q = 2
+Number of calls: 8572
+Estimated error = 0.00299996
+Actual error = 3.84999e-05
+Integration from 0->1 of 1/sqrt(x) WITH CC variable transformation gives:
+Calculated: Q = 1.99987
+Exact: Q = 2
+Number of calls: 8
+Estimated error = 0.00299987
+Actual error = 0.000129682
+
+Integration from 0->1 of ln(x)/sqrt(x) WITHOUT CC variable transformation gives:
+Calculated: Q = -3.99992
+Exact: Q = -4
+Number of calls: 8604
+Estimated error = 0.00499992
+Actual error = 8.2941e-05
+Integration from 0->1 of ln(x)/sqrt(x) WITH CC variable transformation gives:
+Calculated: Q = -3.99486
+Exact: Q = -4
+Number of calls: 36
+Estimated error = 0.00499486
+Actual error = 0.00514201
+
+It is seen that the amount of calls is reducded significantly when calculted with the Clenshaw-Curtis variable transformation for both of the two integrals (1/sqrt(x) and ln(x)/sqrt(x)) which both have integrable divergiencies at the end-points of the intervals.
+
+To see how the variable transformation affect the accuracy for an integral without such a divergencey we look at an integral we also calculated in Task a.
+Integration from 0->1 of 4*sqrt(1-x*x) WITH CC variable transformation gives:
+Calculated: Q = 3.14116
+Exact: Q = 3.14159
+Number of calls: 20
+Estimated error = 0.00414116
+Actual error = 0.000430153
+
+The variable transformation roughly doubled the actual error without reducing the amount of calls a lot.
+
+We now calculate an integral with the GSL implementation:
+Integration from 0->1 of 1/sqrt(x) with the GSL implementation gives::
+Calculated: Q = 3.14159
+Exact: Q = 3.14159
+Number of calls: 147
+Estimated error = 0.00414159
+Actual error = 1.19737e-06
+
+The amount of calls is much closer to the amount of calls of our implementation WITH variable transformation than without. The actual error is the smallest with the GSL implementation
+
+--------------------------------------------------
+Task C:
+
+Integration from 0->inf of exp(-x) gives:
+Calculated: Q = 0.991708
+Exact: Q = 1
+Number of calls: 8
+Estimated error = 0.00199171
+Actual error = 0.00829219
+
+Integration from 0->inf of exp(-x) with the GSL implementation gives:
+Calculated: Q = 1
+Exact: Q = 1
+Number of calls: 75
+Estimated error = 0.002
+Actual error = 2.98174e-10
+
