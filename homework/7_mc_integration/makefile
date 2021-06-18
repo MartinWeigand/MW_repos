@@ -31,7 +31,7 @@ stra_sam.plot.png: stra_sam_data.txt makefile
 	echo '\
 	set term png ;\
 	set out "$@" ;\
-	set title "Stratified samling of 0.7*x*x+y*y<0.5*0.5 (1 if true, otherwise 0)" ;\
+	set title "Stratified samling of x*x+y*y<0.8*0.8 (1 if true, otherwise 0)" ;\
 	set xlabel "x" ;\
 	set ylabel "y" ;\
 	set size square ;\
