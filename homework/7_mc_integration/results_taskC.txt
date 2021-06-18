@@ -1,0 +1,9 @@
+Task C:
+
+Stratified integration of x*x+y*y<0.8*0.8 (1 if true, otherwise 0): 
+Integral = 0.502849
+Estimated error = 0.001
+Exact = 0.502655
+Actual error = 0.000193981
+
+This stratified sampling is illustrated in stra_sam.plot.png
