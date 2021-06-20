@@ -1,0 +1,21 @@
+Task A:
+
+The root(s) of the set of equation 5*z-2x=0, 2*y-14+x=0 and 4*z-10*y=0 is:
+x(root) =
+   10.6061 
+   1.69697 
+   4.24242 
+Which, when checked, actually is the root. So it seems lik the implementation works
+
+The extremum(s) of the RosenBrock's valley function is found by differentiating the function and using our Newton's method implementation to find the roots:
+x(min) =
+   1.00002 
+   1.00004 
+Which matches the expected root (1,1)
+
+Task B:
+
+The lowest root, e_0, for r_max=8 is:
+e_0 =
+ -0.499976 
+The exact value is -0.5.
