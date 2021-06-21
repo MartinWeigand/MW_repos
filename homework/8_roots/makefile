@@ -11,7 +11,7 @@ s_hydrogen_function.png: data.txt makefile
 	set title "Radial s-wavefunction of hydrogen for r(max)=8" ;\
 	set out "$@" ;\
 	set xlabel "$$r$$ [$$a_\mathrm{Bohr}$$]" ;\
-	set ylabel "$$F_{\epsilon}(r)$$" ;\
+	set ylabel "$$F_{epsilon}(r)$$" ;\
 	set tics out ;\
 	plot \
 	"$<" using 1:2 with points title "Calculated data" \
