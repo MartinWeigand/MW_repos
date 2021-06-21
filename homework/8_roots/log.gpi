@@ -1,0 +1,11 @@
+\
+set terminal png ;\
+set title "Radial s-wavefunction of hydrogen for r(max)=8" ;\
+set out "s_hydrogen_function.png" ;\
+set xlabel "$r$ [$a_\mathrm{Bohr}$]" ;\
+set ylabel "$F_{psilon}(r)$" ;\
+set tics out ;\
+plot \
+"data.txt" using 1:2 with points title "Calculated data" \
+, x*exp(-x) with lines title "Exact" \
+

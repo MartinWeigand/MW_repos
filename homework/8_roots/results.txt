@@ -5,7 +5,7 @@ x(root) =
    10.6061 
    1.69697 
    4.24242 
-Which, when checked, actually is the root. So it seems lik the implementation works
+Which, when checked, actually is the root. So it seems like the implementation works
 
 The extremum(s) of the RosenBrock's valley function is found by differentiating the function and using our Newton's method implementation to find the roots:
 x(min) =
@@ -17,5 +17,9 @@ Task B:
 
 The lowest root, e_0, for r_max=8 is:
 e_0 =
- -0.499976 
+ -0.499975 
 The exact value is -0.5.
+
+Task C:
+
+As it is seen in convergence_comparison.png, the second boundary condition leads to a much faster convergence towards the exact result than the first boundary condition.

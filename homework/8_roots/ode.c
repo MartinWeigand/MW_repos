@@ -41,11 +41,11 @@ void driver(
 ){
 	double x=a;
 	FILE* stream = fopen(file,"w");
-	fprintf(stream,"%9.3g ",x);
-	for(int i=0; i<n; i++){
-		fprintf(stream,"%9.3g ",y[i]);
-	}
-	fprintf(stream,"\n");
+//	fprintf(stream,"%9.3g ",x);
+//	for(int i=0; i<n; i++){
+//		fprintf(stream,"%9.3g ",y[i]);
+//	}
+//	fprintf(stream,"\n");
 	while(x<b){
 		if(x+h>b){
 			h=b-x;
@@ -78,4 +78,5 @@ void driver(
 		if(err>0) h *= 0.95*pow(tol/err,0.25);
 		else h *= 2;
 	}
+	fclose(stream);
 }

@@ -1,0 +1,12 @@
+\
+set terminal png ;\
+set title "Comparison of convergence solution based on two boundary conditions" ;\
+set out "convergence_comparison.png" ;\
+set xlabel "r(max)" ;\
+set ylabel "Epsilon" ;\
+set tics out ;\
+plot \
+"convergence_con1_data.txt" using 1:2 with points title "Condition 1" \
+,"convergence_con2_data.txt" using 1:2 with points title "Condition 2" \
+, -0.5 with lines title "Exact" \
+

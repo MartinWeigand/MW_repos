@@ -40,13 +40,13 @@ void eqs(int n, double r, double* y, double* dydr){
 double F_e(double e, double r){
 	assert(r >= 0);
 	E = e;
-	const double rmin = 1e-5;
+	const double rmin = 1e-16;
 	if(r < rmin){
 		return r-r*r;
 	}
-	double y[2] = {rmin-rmin*rmin,1-2*rmin};
+	double y[2] = {0,1};//{rmin-rmin*rmin,1-2*rmin};
 	int n = 2;
-	double h=0.1;
+	double h=0.01;
 	double acc = 0.001;
 	double eps = 0.001;
 	driver(n,eqs,rmin,y,r,h,acc,eps,"data.txt");
@@ -57,6 +57,13 @@ void master(gsl_vector* x, gsl_vector* fx){
 	assert(e < 0);
 	double f_rmax = F_e(e,rmax);
 	gsl_vector_set(fx,0,f_rmax);
+}
+
+void master1(gsl_vector* x, gsl_vector* fx){
+	double e = gsl_vector_get(x,0);
+	assert(e < 0);
+	double f_rmax = F_e(e,rmax);
+	gsl_vector_set(fx,0,f_rmax-rmax*exp(-rmax*sqrt(-2*e)));
 }
 
 int main(){
@@ -70,7 +77,7 @@ int main(){
 	newton(fn,x1,eps);
 	printf("The root(s) of the set of equation 5*z-2x=0, 2*y-14+x=0 and 4*z-10*y=0 is:\n");
 	vector_print("x(root) =", x1);
-	printf("Which, when checked, actually is the root. So it seems lik the implementation works\n\n");
+	printf("Which, when checked, actually is the root. So it seems like the implementation works\n\n");
 	int dim2 = 2;
 	gsl_vector* x2 = gsl_vector_alloc(dim2);
 	gsl_vector_set(x2,0,2);
@@ -88,5 +95,24 @@ int main(){
 	newton(master,x3,eps);
 	printf("The lowest root, e_0, for r_max=8 is:\n");
 	vector_print("e_0 =",x3);
-	printf("The exact value is -0.5.\n");
+	printf("The exact value is -0.5.\n\n");
+
+	printf("Task C:\n\n");
+	FILE* stream2 = fopen("convergence_con1_data.txt","w");
+	gsl_vector* x4 = gsl_vector_alloc(dim1);
+	for(rmax = 2; rmax<16; rmax+=(double)1/2){
+		gsl_vector_set(x4,0,-2);
+		newton(master,x4,eps);
+		fprintf(stream2,"%9.3g %0.15g \n",rmax,gsl_vector_get(x4,0));
+	}
+	FILE* stream3 = fopen("convergence_con2_data.txt","w");
+	gsl_vector* x5 = gsl_vector_alloc(dim1);
+	for(rmax = 1; rmax<16; rmax+=(double)1/2){
+		gsl_vector_set(x5,0,-2);
+		newton(master1,x5,eps);
+		fprintf(stream3,"%9.3g %0.15g \n",rmax,gsl_vector_get(x5,0));
+	}
+	fclose(stream2);
+	fclose(stream3);
+	printf("As it is seen in convergence_comparison.png, the second boundary condition leads to a much faster convergence towards the exact result than the first boundary condition.");
 }
