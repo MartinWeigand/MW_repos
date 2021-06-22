@@ -8,8 +8,8 @@ default: results.txt
 results.txt: main
 	./$< > $@
 
-main: main.o q_newton.o
+main: main.o func.o
 
 .PHONEY: clean
 clean:
-	$(RM) *.o *.txt
+	$(RM) *.o results.txt

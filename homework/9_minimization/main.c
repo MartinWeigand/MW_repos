@@ -3,7 +3,7 @@
 #include <gsl/gsl_blas.h>
 #include <gsl/gsl_matrix.h>
 #include <gsl/gsl_vector.h>
-#include "q_newton.h"
+#include "func.h"
 
 void vector_print(char s[], gsl_vector* vec){
 	printf("%s\n",s);
@@ -122,13 +122,15 @@ int main(){
 	gsl_vector_set(x3,1,0.2);
 	gsl_vector_set(x3,2,2);
 	qnewton(Breit_Wigner,x3,acc);
-	vector_print("The Breit-Wigner function is fitted to the data by minimizing the deviation function which leads to the parameter:",x3);
+	vector_print("The Breit-Wigner function is fitted to the data by minimizing the deviation function which leads to the parameters:",x3);
 	printf("So according to our implementation the Higgs-boson has a mass of %g +/- %g Gev/c^2.\n\n",gsl_vector_get(x3,0),gsl_vector_get(x3,1));
 
 	printf("Task C:\n\n");
-	double x[] = {2.0,2.0};
-	double h[] = {1, 0.1};
+	double x[] = {-2.0,2.0};
+	double h[] = {1, 1};
+	printf("We try to use the downhill simplex method on Himmelblau's function.\n\n");
+	printf("Starting point: (%g,%g)\n",x[0],x[1]);
 	int iterations = downhill(n2,Himmelblau1,x,h,1e-5);
-	printf("%g %g\n",x[0],x[1]);
+	printf("Minimum is at: (%g,%g)\n",x[0],x[1]);
 	printf("Iterations = %i\n",iterations);
 }

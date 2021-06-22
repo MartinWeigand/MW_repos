@@ -46,7 +46,7 @@ Exact result is (3,2), (-2.805118,3.131312), (-3.779310,-3.283186) and (3.584428
 
 Task B:
 
-The Breit-Wigner function is fitted to the data by minimizing the deviation function which leads to the parameter:
+The Breit-Wigner function is fitted to the data by minimizing the deviation function which leads to the parameters:
    125.972 
    2.08646 
    9.87693 
@@ -54,5 +54,8 @@ So according to our implementation the Higgs-boson has a mass of 125.972 +/- 2.0
 
 Task C:
 
-3 2
-Iterations = 59
+We try to use the downhill simplex method on Himmelblau's function.
+
+Starting point: (-2,2)
+Minimum is at: (-2.80512,3.13131)
+Iterations = 43
