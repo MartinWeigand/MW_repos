@@ -1,0 +1,58 @@
+Task A:
+     Minimization of (x*x*x+y*y-z-9)^2
+Starting point:
+         5 
+Minimum is at:
+   6.85714 
+Iteration steps = 8
+Exact result is at 6.857142857
+
+     Minimization of Rosenbrock's function
+Starting point:
+        20 
+        10 
+Minimum is at:
+  0.999993 
+  0.999987 
+Iteration steps = 62
+Exact result is (1,1)
+
+     Minimization of Himmelblau's function;
+Starting point:
+        20 
+        10 
+Minimum is at:
+  -3.77931 
+  -3.28319 
+Iteration steps = 15
+
+Starting point:
+         5 
+        -5 
+Minimum is at:
+         3 
+         2 
+Iteration steps = 9
+
+Starting point:
+        -5 
+        -5 
+Minimum is at:
+  -2.80512 
+   3.13131 
+Iteration steps = 10
+
+Exact result is (3,2), (-2.805118,3.131312), (-3.779310,-3.283186) and (3.584428,-1.848126)
+
+Task B:
+
+The Breit-Wigner function is fitted to the data by minimizing the deviation function which leads to the parameter:
+   125.972 
+   2.08646 
+   9.87693 
+So according to our implementation the Higgs-boson has a mass of 125.972 +/- 2.08646 Gev/c^2.
+
+Task C:
+
+3 2
+Iterations = 59
