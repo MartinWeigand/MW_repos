@@ -1,0 +1,13 @@
+Task A and B:
+
+The artifical neural network is implemented and tested to interpolate a function which is illustrated in plot.png
+8 neurons was used and the i'th neurons parameters are:
+i = 0 , ai = -2.48783 , bi = -0.369704 , wi = -12.4488
+i = 1 , ai = -1.6829 , bi = -0.739031 , wi = -8.06824
+i = 2 , ai = -2.13734 , bi = -0.549882 , wi = -5.2863
+i = 3 , ai = -2.47644 , bi = -0.349242 , wi = 9.41536
+i = 4 , ai = 0.697097 , bi = 1.79213 , wi = 3.17004
+i = 5 , ai = 0.798004 , bi = 1.8558 , wi = 4.89106
+i = 6 , ai = 0.34773 , bi = 1.60524 , wi = 5.62162
+i = 7 , ai = -0.980446 , bi = 1.00644 , wi = 10.2941
+The derivative and antiderivative is also approimated with the nerual network as shown in plot.png. The derivative match the exact quite well, while the behaviour of the antiderivative is also correct but is numerical off due to some integration constant.
