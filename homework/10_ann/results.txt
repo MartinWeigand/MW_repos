@@ -10,4 +10,4 @@ i = 4 , ai = 0.697097 , bi = 1.79213 , wi = 3.17004
 i = 5 , ai = 0.798004 , bi = 1.8558 , wi = 4.89106
 i = 6 , ai = 0.34773 , bi = 1.60524 , wi = 5.62162
 i = 7 , ai = -0.980446 , bi = 1.00644 , wi = 10.2941
-The derivative and antiderivative is also approimated with the nerual network as shown in plot.png. The derivative match the exact quite well, while the behaviour of the antiderivative is also correct but is numerical off due to some integration constant.
+The derivative and antiderivative is also approimated with the nerual network as shown in plot.png. The derivative matches the exact quite well, while the behaviour of the antiderivative is also correct but is numerical off due to some integration constant.
