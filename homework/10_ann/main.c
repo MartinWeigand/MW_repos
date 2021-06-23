@@ -60,7 +60,7 @@ int main(){
 		double wi = gsl_vector_get(network->params,3*i+2);
 		printf("i = %i , ai = %g , bi = %g , wi = %g\n",i,ai,bi,wi);
 	}
-	printf("The derivative and antiderivative is also approimated with the nerual network as shown in plot.png. The derivative match the exact quite well, while the behaviour of the antiderivative is also correct but is numerical off due to some integration constant.");
+	printf("The derivative and antiderivative is also approimated with the nerual network as shown in plot.png. The derivative matches the exact quite well, while the behaviour of the antiderivative is also correct but is numerical off due to some integration constant.");
 	FILE* stream2 = fopen("data2.txt","w");
 	for(double i=a; i<=b; i+=1.0/10){
 		double deri = ann_derivative(network,i);
