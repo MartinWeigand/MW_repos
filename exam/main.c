@@ -129,7 +129,7 @@ int main(){
 	printf("--------------------------------------------------\n");
 
 //Test of the implementations in infint_func.c
-	printf("Test of the implementation of the adaptive integrator that accepts infinite limits:\n");
+	printf("Test of the implementation of the adaptive integrator that accepts infinite limits:\n\n");
 
 	//test for f6
 	a = CMPLX(0,0);
