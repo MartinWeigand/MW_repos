@@ -1,7 +1,7 @@
 The following integrations is performed with absolute and relative accuracy goal on 1e-6.
 
 --------------------------------------------------
-Test of the implementation of the adaptive integrator for a line integral of a complex-calued function:
+Test of the implementation of the adaptive integrator for a line integral of a complex-valued function:
 
 Integration from 0+0i->1+i of x+yi gives:
 Calculated: Q = 0.000000+1.000000*i

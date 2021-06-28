@@ -48,7 +48,7 @@ int main(){
 	printf("--------------------------------------------------\n");
 
 //First we test the implementation in integrator_func.c
-	printf("Test of the implementation of the adaptive integrator for a line integral of a complex-calued function:\n\n");
+	printf("Test of the implementation of the adaptive integrator for a line integral of a complex-valued function:\n\n");
 
 	//Test for f1
 	double complex a = CMPLX(0,0); //Lower limit
