@@ -47,7 +47,8 @@ Estimated error = 0.000002+0.000002*i
 Number of calls: 212
 
 --------------------------------------------------
-Test of the implementation of the adaptive integrator that accepts infinite limitsIntegration from 0+0i->inf of exp(-x) gives:
+Test of the implementation of the adaptive integrator that accepts infinite limits:
+Integration from 0+0i->inf of exp(-x) gives:
 Calculated: Q = 1.000000+0.000000*i
 Exact: Q = 1.000000+0.000000*i
 Estimated error = 0.000002+0.000001*i
