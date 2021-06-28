@@ -12,10 +12,10 @@ int main(void){
 	double complex z2 = cpow(I,cexp(1));
 	double complex z3 = cexp(I);
 	double complex z4 = cpow(I,I);
-	printf("\u0393=%g\n",gamma_5);
+	printf("\u0393 (5)=%g\n",gamma_5);
 	printf("J_1(0.5)=%g\n",bessel_05);
 	printf("sqrt(-2)=%g + %gI\n",creal(z),cimag(z));
-	printf("exp(i\u03c0)=%f +%fI\n",creal(z1),cimag(z1)); 
+	printf("exp(i\u03c0)=%f +%fI\n",creal(z1),cimag(z1));
 	printf("i^e = %f + %fI\n",creal(z2),cimag(z2));
 	printf("e^i = %f + %fI\n",creal(z3),cimag(z3));
 	printf("i^i = %f + %fI\n",creal(z4),cimag(z4));
